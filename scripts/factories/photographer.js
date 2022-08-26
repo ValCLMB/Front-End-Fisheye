@@ -8,7 +8,8 @@ function photographerFactory(data) {
         // upSection
         const upSection = document.createElement("section")
         const link = document.createElement("a");
-        link.setAttribute("href","photographer.html")
+        link.setAttribute("href",`photographer.html`)
+        link.addEventListener('click', () => window.sessionStorage.setItem("profil", JSON.stringify(data)))
         // picture
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
