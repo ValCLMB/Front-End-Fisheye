@@ -4,8 +4,8 @@
     --color-primary-lighter : #D3573C;
     --color-secondary-darker:#901C1C;
     --color-secondary-lighter : #D3573C;
-    --color-secondary-discreet-background: #FAFAFA;
-    --color-secondary-discreet-title :#525252;
+    --color-secondary-discreet-lighter: #FAFAFA;
+    --color-secondary-discreet-darker :#525252;
 }
 body {
     font-family: "DM Sans", sans-serif;
@@ -37,17 +37,20 @@ h1 {
     margin-top: 100px;
 }
 
-.photographer_section article {
+.photographer_section article a {
     justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .photographer_section article h2 {
     color: var(--color-primary-lighter);
     font-size: 36px;
+    margin: 20px 0 0;
 }
 
 .photographer_section article img {
@@ -56,4 +59,20 @@ h1 {
     border-radius: 50%;
     box-shadow: 0 5px 10px #cdcdcd;
     object-fit: cover;
+}
+
+.photographer_infos {
+    text-align: center;
+}
+.photographer_infos p{
+    margin: 0;
+}
+.photographer_infos .location {
+    color: var(--color-secondary-darker);
+}
+.photographer_infos .tagline, .photographer_infos .price {
+    font-size: 12px;
+}
+.photographer_infos .price {
+    color: var(--color-secondary-discreet-darker);
 }
