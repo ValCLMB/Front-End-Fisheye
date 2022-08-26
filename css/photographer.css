@@ -7,6 +7,10 @@
     height: 300px;
     margin: 0 100px;
 }
+.photograph-header img {
+    width: 200px;
+    height: 200px;
+}
 
 .contact_button {
     font-size: 20px;
