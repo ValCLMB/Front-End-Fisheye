@@ -9,6 +9,7 @@ function photographerFactory(data) {
         const upSection = document.createElement("section")
         const link = document.createElement("a");
         link.setAttribute("href",`photographer.html`)
+        // Pass data in sessions storage when user wants to see detail
         link.addEventListener('click', () => window.sessionStorage.setItem("profil", JSON.stringify(data)))
         // picture
         const img = document.createElement( 'img' );
