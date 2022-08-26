@@ -41,5 +41,40 @@ function photographerFactory(data) {
         article.appendChild(downSection)
         return (article);
     }
-    return { name, picture, getUserCardDOM }
+
+    // Detail header
+    function getHeaderDOM() {
+        const infos = document.createElement("section");
+        const h1 = document.createElement("h1");
+        const subInfos = document.createElement("div");
+
+        // infos - left
+        h1.textContent = name;
+
+        const paragraphClasses = [
+            {name:"location", value:`${city}, ${country}`},
+            {name:"tagline", value:`${tagline}`},
+        ]
+        paragraphClasses.forEach(p => {
+            let infosLine = document.createElement("p");
+            infosLine.setAttribute("class",p.name);
+            infosLine.textContent = p.value;
+            subInfos.appendChild(infosLine)
+        })
+
+
+        infos.appendChild(h1)
+        infos.appendChild(subInfos);
+        // picture - right
+        const picture = portrait ?
+            `assets/photographers/portrait/${portrait}` : "assets/photographers/account.png";
+        const img = document.createElement("img");
+        img.setAttribute("src",picture);
+        img.setAttribute("alt", name);
+        img.setAttribute("class","profil_pic");
+        return {infos, img};
+    }
+
+    return { name, picture, getUserCardDOM, getHeaderDOM }
 }
+
