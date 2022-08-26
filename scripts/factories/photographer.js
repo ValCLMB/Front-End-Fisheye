@@ -8,7 +8,7 @@ function photographerFactory(data) {
         // upSection
         const upSection = document.createElement("section")
         const link = document.createElement("a");
-        link.setAttribute("href","https://wikipedia.fr")
+        link.setAttribute("href","photographer.html")
         // picture
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
