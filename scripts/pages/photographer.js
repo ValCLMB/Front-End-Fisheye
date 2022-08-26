@@ -9,6 +9,7 @@ async function getPhotographerPictures(id) {
     return pictures;
 }
 async function displayData(photographer) {
+    const main = document.querySelector("main")
     const header = document.querySelector(".photograph-header")
 
     const photographerModel = photographerFactory(photographer.photographer);
@@ -16,8 +17,9 @@ async function displayData(photographer) {
     const headerDOM = photographerModel.getHeaderDOM();
     header.prepend(headerDOM.infos);
     header.append(headerDOM.img)
-
-
+    // additional infos (like, price)
+    const additionalInfosDOM = photographerModel.getAdditionalInfosDOM();
+    main.append(additionalInfosDOM)
 }
 
 async function init() {

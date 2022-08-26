@@ -1,5 +1,5 @@
 function photographerFactory(data) {
-    const { name, portrait,city,country,tagline,price } = data;
+    const { name, portrait,city,country,tagline,price} = data;
 
     const picture = portrait ? `assets/photographers/portrait/${portrait}` : "assets/photographers/account.png";
 
@@ -75,6 +75,26 @@ function photographerFactory(data) {
         return {infos, img};
     }
 
-    return { name, picture, getUserCardDOM, getHeaderDOM }
+    // like/price infos
+    function getAdditionalInfosDOM() {
+        const container = document.createElement("aside");
+        container.classList.add("additional_infos");
+
+        const paragraphClasses = [
+            {name:"likes", value:`test`},
+            {name:"price", value:`${price}€/jour`},
+        ]
+
+        paragraphClasses.forEach(p => {
+            let infosLine = document.createElement("p");
+            infosLine.setAttribute("class",p.name);
+            infosLine.textContent = p.value;
+            container.appendChild(infosLine)
+        })
+
+        return container
+    }
+
+    return { name, picture, getUserCardDOM, getHeaderDOM, getAdditionalInfosDOM}
 }
 
