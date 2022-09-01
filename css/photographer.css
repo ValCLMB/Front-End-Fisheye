@@ -1,12 +1,28 @@
-#contact_modal {
-    display: none;
-}
-
+/* header */
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    padding: 0 50px;
 }
+.photograph-header img {
+    width: 200px;
+    height: 200px;
+}
+.photograph-header h1 {
+    color: var(--color-primary-lighter) ;
+    font-size: 50px;
+    margin: 0;
+}
+.photograph-header .location {
+    color: var(--color-secondary-darker);
+    font-size: 25px;
+    margin: 0;
+}
+.photograph-header .tagline {
+    color: var(--color-secondary-discreet-darker);
+}
+
 
 .contact_button {
     font-size: 20px;
@@ -19,6 +35,23 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+/* additional infos*/
+.additional_infos {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 35px;
+    border-radius: 5px 5px 0 0 ;
+    padding: 10px 20px;
+    background-color: var(--color-secondary-lighter)
+}
+.additional_infos p {
+    margin: 0;
+}
+/* modal */
+#contact_modal {
+    display: none;
 }
 
 .modal {
