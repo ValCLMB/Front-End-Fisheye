@@ -1,8 +1,10 @@
 /* header */
+main {
+    margin: 0 100px;
+}
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
     padding: 0 50px;
 }
 .photograph-header img {
@@ -23,6 +25,64 @@
     color: var(--color-secondary-discreet-darker);
 }
 
+/* photograph-photos */
+.photograph-photos nav {
+    margin: 20px 0;
+    font-weight: bold;
+}
+.photograph-photos nav select {
+    border: 0;
+    background-color: var(--color-primary-darker);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px grey;
+    font-weight: bold;
+}
+.photograph-photos nav select option {
+    border-bottom: 1px solid #FAFAFA ;
+}
+.photograph-photos-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 20px;
+}
+.photograph-photos-list article{
+    width: 350px;
+    object-fit: cover;
+    margin-top: 20px;
+}
+.photograph-photos-list img,.photograph-photos-list .video {
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.photograph-photos-list .descr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-primary-darker);
+    font-size: 20px;
+}
+.photograph-photos-list .descr p {
+    margin: 0;
+}
+.photograph-photos-list .likes {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+.photograph-photos-list .likes-img {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    filter: invert(12%) sepia(63%) saturate(3008%) hue-rotate(346deg) brightness(115%) contrast(94%);
+}
+
+/* contact */
 
 .contact_button {
     font-size: 20px;
@@ -37,9 +97,10 @@
     cursor: pointer;
 }
 /* additional infos*/
+
 .additional_infos {
     display: flex;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 35px;
     border-radius: 5px 5px 0 0 ;
@@ -47,14 +108,31 @@
     background-color: var(--color-secondary-lighter)
 }
 .additional_infos p {
-    margin: 0;
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    font-size: 20px;
 }
+.additional_infos p .likes-img {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
 /* modal */
+
 #contact_modal {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(128, 128, 128, 0.5);
     display: none;
 }
 
 .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;

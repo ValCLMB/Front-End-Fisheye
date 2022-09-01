@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/photographer.css" rel="stylesheet" type="text/css"/>
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -18,6 +19,17 @@
     <header class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
     </header>
+    <section class="photograph-photos">
+        <nav>
+            <label for="photos-filter">Trier par</label> 
+            <select id="photos-filter">
+                <option>Popularité</option>
+                <option>Date</option>
+                <option>Titre</option>
+            </select>
+        </nav>
+        <section class="photograph-photos-list"></section>
+    </section>
 </main>
 <div id="contact_modal">
     <div class="modal">
@@ -35,7 +47,9 @@
     </div>
 </div>
 <script src="scripts/factories/photographer.js"></script>
+<script src="scripts/factories/pictures.js"></script>
 <script src="/scripts/pages/photographer.js"></script>
 <script src="/scripts/utils/contactForm.js"></script>
+<script src="/scripts/utils/description.js"></script>
 </body>
 </html>
