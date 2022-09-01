@@ -16,9 +16,11 @@ function picturesFactory(picture, photographerName) {
     } else {
       vid = document.createElement("video");
       vid.classList.add("video");
+
       const src = document.createElement("source");
       src.setAttribute("src", path);
       src.setAttribute("type", "video/mp4");
+
       vid.appendChild(src);
     }
 
@@ -34,12 +36,7 @@ function picturesFactory(picture, photographerName) {
       },
     ];
 
-    paragraphClasses.forEach((p) => {
-      let infos = document.createElement("p");
-      infos.setAttribute("class", p.name);
-      infos.innerHTML = p.value;
-      descr.appendChild(infos);
-    });
+    createDescription(paragraphClasses, descr);
 
     article.appendChild(image ? img : vid);
     article.appendChild(descr);

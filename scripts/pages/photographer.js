@@ -10,31 +10,43 @@ async function getPhotographerPictures(id) {
     });
   return pictures;
 }
-async function displayData(datas) {
-  const main = document.querySelector("main");
-  const header = document.querySelector(".photograph-header");
 
-  const photographerModel = photographerFactory(datas.photographer);
-  // header
+async function displayHeader(photographer) {
+  const header = document.querySelector(".photograph-header");
+  const photographerModel = photographerFactory(photographer);
   const headerDOM = photographerModel.getHeaderDOM();
+
   header.prepend(headerDOM.infos);
   header.append(headerDOM.img);
+}
 
-  // photos
+async function displayPictures(pictures, photographerName) {
   const photoSection = document.querySelector(".photograph-photos-list");
 
-  datas.pictures.forEach((pic) => {
-    const pictureModel = picturesFactory(pic, datas.photographer.name);
+  pictures.forEach((pic) => {
+    const pictureModel = picturesFactory(pic, photographerName);
     const pictureCardDOM = pictureModel.getPicturesCardDOM();
     photoSection.appendChild(pictureCardDOM);
   });
+}
 
-  // additional infos (like, price)
+async function displayAdditionalInfos(datas) {
+  const { pictures, photographer } = datas;
   let totalLikes = 0;
-  datas.pictures.forEach((pic) => (totalLikes += pic.likes));
+  pictures.forEach((pic) => (totalLikes += pic.likes));
+
+  const photographerModel = photographerFactory(photographer);
   const additionalInfosDOM =
     photographerModel.getAdditionalInfosDOM(totalLikes);
+
+  const main = document.querySelector("main");
   main.append(additionalInfosDOM);
+}
+
+async function displayData(datas) {
+  displayHeader(datas.photographer);
+  displayPictures(datas.pictures, datas.photographer.name);
+  displayAdditionalInfos(datas);
 }
 
 async function init() {
