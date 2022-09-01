@@ -24,11 +24,13 @@ async function displayData(datas) {
   main.append(additionalInfosDOM);
 
   // photos
-  const photoSection = document.querySelector(".photograph-photos");
+  const photoSection = document.querySelector(".photograph-photos-list");
 
-  //   datas.pictures.forEach((pic) => {
-  //     const pictureModel = picturesFactory(picture);
-  //   });
+  datas.pictures.forEach((pic) => {
+    const pictureModel = picturesFactory(pic, datas.photographer.name);
+    const pictureCardDOM = pictureModel.getPicturesCardDOM();
+    photoSection.appendChild(pictureCardDOM);
+  });
 }
 
 async function init() {

@@ -25,6 +25,22 @@ main {
     color: var(--color-secondary-discreet-darker);
 }
 
+.photograph-photos-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.photograph-photos-list article{
+    width: 30%;
+    object-fit: cover;
+    margin: 50px 0;
+}
+.photograph-photos-list img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+}
+
 
 .contact_button {
     font-size: 20px;
