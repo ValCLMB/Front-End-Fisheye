@@ -27,6 +27,7 @@ async function displayPictures(pictures, photographerName) {
     const pictureModel = picturesFactory(pic, photographerName);
     const pictureCardDOM = pictureModel.getPicturesCardDOM();
     photoSection.appendChild(pictureCardDOM);
+    pictureCardDOM.addEventListener("click", pictureModel.displayLightModal);
   });
 }
 

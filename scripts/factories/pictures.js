@@ -2,12 +2,12 @@ function picturesFactory(picture, photographerName) {
   const { date, likes, price, image, title, video } = picture;
 
   const name = photographerName.split(" ")[0];
+  const path = `/assets/photographers/${name}/${image ? image : video}`;
 
   // pictures card
   function getPicturesCardDOM() {
     const article = document.createElement("article");
     // img - video
-    const path = `/assets/photographers/${name}/${image ? image : video}`;
     let img, vid;
 
     // Create img or video tag according to the format
@@ -46,5 +46,19 @@ function picturesFactory(picture, photographerName) {
     return article;
   }
 
-  return { getPicturesCardDOM };
+  function displayLightModal() {
+    const main = document.querySelector("main");
+    const modal = document.querySelector(".light-modal");
+    const imgContainer = document.querySelector(".light-modal-img");
+
+    modal.style.display = "block";
+    imgContainer.innerHTML = "";
+
+    const img = document.createElement("img");
+    img.setAttribute("src", path);
+
+    imgContainer.appendChild(img);
+  }
+
+  return { getPicturesCardDOM, displayLightModal };
 }
