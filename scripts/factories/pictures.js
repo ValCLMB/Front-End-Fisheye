@@ -10,12 +10,15 @@ function picturesFactory(picture, photographerName) {
     const path = `/assets/photographers/${name}/${image ? image : video}`;
     let img, vid;
 
+    // Create img or video tag according to the format
     if (image) {
       img = document.createElement("img");
       img.setAttribute("src", path);
+      img.classList.add("photographer-photo");
     } else {
       vid = document.createElement("video");
       vid.classList.add("video");
+      vid.classList.add("photographer-photo");
 
       const src = document.createElement("source");
       src.setAttribute("src", path);
