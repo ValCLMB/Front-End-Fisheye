@@ -19,9 +19,6 @@ async function displayData(datas) {
   const headerDOM = photographerModel.getHeaderDOM();
   header.prepend(headerDOM.infos);
   header.append(headerDOM.img);
-  // additional infos (like, price)
-  const additionalInfosDOM = photographerModel.getAdditionalInfosDOM();
-  main.append(additionalInfosDOM);
 
   // photos
   const photoSection = document.querySelector(".photograph-photos-list");
@@ -31,6 +28,13 @@ async function displayData(datas) {
     const pictureCardDOM = pictureModel.getPicturesCardDOM();
     photoSection.appendChild(pictureCardDOM);
   });
+
+  // additional infos (like, price)
+  let totalLikes = 0;
+  datas.pictures.forEach((pic) => (totalLikes += pic.likes));
+  const additionalInfosDOM =
+    photographerModel.getAdditionalInfosDOM(totalLikes);
+  main.append(additionalInfosDOM);
 }
 
 async function init() {

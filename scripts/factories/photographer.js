@@ -80,19 +80,22 @@ function photographerFactory(data) {
   }
 
   // like/price infos
-  function getAdditionalInfosDOM() {
+  function getAdditionalInfosDOM(likes) {
     const container = document.createElement("aside");
     container.classList.add("additional_infos");
 
     const paragraphClasses = [
-      { name: "likes", value: `test` },
+      {
+        name: "likes",
+        value: `${likes}<img src="/assets/icons/heart.svg" alt="like" class="likes-img"/>`,
+      },
       { name: "price", value: `${price}€/jour` },
     ];
 
     paragraphClasses.forEach((p) => {
       let infosLine = document.createElement("p");
       infosLine.setAttribute("class", p.name);
-      infosLine.textContent = p.value;
+      infosLine.innerHTML = p.value;
       container.appendChild(infosLine);
     });
 

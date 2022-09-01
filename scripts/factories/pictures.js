@@ -1,5 +1,4 @@
 function picturesFactory(picture, photographerName) {
-  console.log(picture);
   const { date, likes, price, image, title, video } = picture;
 
   const name = photographerName.split(" ")[0];

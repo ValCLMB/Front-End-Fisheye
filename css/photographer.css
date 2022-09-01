@@ -34,7 +34,7 @@ main {
 .photograph-photos-list article{
     width: 350px;
     object-fit: cover;
-    margin: 50px 0;
+    margin-top: 20px;
 }
 .photograph-photos-list img,.photograph-photos-list .video {
     width: 350px;
@@ -42,6 +42,7 @@ main {
     border-radius: 5px;
     object-fit: cover;
 }
+
 .photograph-photos-list .descr {
     display: flex;
     align-items: center;
@@ -50,9 +51,13 @@ main {
     font-size: 20px;
     font-weight: bold;
 }
+.photograph-photos-list .descr p {
+    margin: 0;
+}
 .photograph-photos-list .likes {
     display: flex;
     align-items: center;
+    font-size: 18px;
 }
 .photograph-photos-list .likes-img {
     width: 20px;
@@ -74,9 +79,10 @@ main {
     cursor: pointer;
 }
 /* additional infos*/
+
 .additional_infos {
     display: flex;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 35px;
     border-radius: 5px 5px 0 0 ;
@@ -84,8 +90,17 @@ main {
     background-color: var(--color-secondary-lighter)
 }
 .additional_infos p {
-    margin: 0;
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    font-size: 20px;
 }
+.additional_infos p .likes-img {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
 /* modal */
 #contact_modal {
     display: none;
