@@ -34,12 +34,8 @@ function photographerFactory(data) {
       { name: "tagline", value: `${tagline}` },
       { name: "price", value: `${price}€/jour` },
     ];
-    paragraphClasses.forEach((p) => {
-      let infosLine = document.createElement("p");
-      infosLine.setAttribute("class", p.name);
-      infosLine.textContent = p.value;
-      downSection.appendChild(infosLine);
-    });
+    createDescription(paragraphClasses, downSection);
+
     // container
     article.appendChild(upSection);
     article.appendChild(downSection);
@@ -59,12 +55,8 @@ function photographerFactory(data) {
       { name: "location", value: `${city}, ${country}` },
       { name: "tagline", value: `${tagline}` },
     ];
-    paragraphClasses.forEach((p) => {
-      let infosLine = document.createElement("p");
-      infosLine.setAttribute("class", p.name);
-      infosLine.textContent = p.value;
-      subInfos.appendChild(infosLine);
-    });
+
+    createDescription(paragraphClasses, subInfos);
 
     infos.appendChild(h1);
     infos.appendChild(subInfos);
@@ -92,12 +84,7 @@ function photographerFactory(data) {
       { name: "price", value: `${price}€/jour` },
     ];
 
-    paragraphClasses.forEach((p) => {
-      let infosLine = document.createElement("p");
-      infosLine.setAttribute("class", p.name);
-      infosLine.innerHTML = p.value;
-      container.appendChild(infosLine);
-    });
+    createDescription(paragraphClasses, container);
 
     return container;
   }
