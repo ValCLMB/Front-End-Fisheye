@@ -80,6 +80,10 @@ function picturesFactory(picture, photographerName, pictures, index) {
     //  display modal and add img
     imgContainer.innerHTML = "";
     modal.style.display = "block";
+
+    if (picture.media.tagName === "VIDEO") {
+      picture.media.play();
+    }
     imgContainer.appendChild(picture.media);
 
     changePictures();
@@ -96,6 +100,10 @@ function picturesFactory(picture, photographerName, pictures, index) {
         if (indexImg < pictures.length - 1) indexImg += 1;
       } else {
         if (indexImg > 0) indexImg -= 1;
+      }
+
+      if (pictures[indexImg].media.tagName === "VIDEO") {
+        pictures[indexImg].media.play();
       }
 
       imgContainer.innerHTML = "";
