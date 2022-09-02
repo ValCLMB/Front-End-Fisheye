@@ -7,6 +7,29 @@ function picturesFactory(picture, photographerName) {
   // pictures card
   function getPicturesCardDOM() {
     const article = document.createElement("article");
+
+    const media = imageOrVideo();
+
+    // descr
+    const descr = document.createElement("div");
+    descr.classList.add("descr");
+
+    const paragraphClasses = [
+      { name: "title", value: title },
+      {
+        name: "likes",
+        value: `${likes}<img src="/assets/icons/heart.svg" alt="like" class="likes-img"/>`,
+      },
+    ];
+
+    createDescription(paragraphClasses, descr);
+
+    article.appendChild(media);
+    article.appendChild(descr);
+    return article;
+  }
+
+  function imageOrVideo() {
     // img - video
     let img, vid;
 
@@ -27,37 +50,20 @@ function picturesFactory(picture, photographerName) {
       vid.appendChild(src);
     }
 
-    // descr
-    const descr = document.createElement("div");
-    descr.classList.add("descr");
-
-    const paragraphClasses = [
-      { name: "title", value: title },
-      {
-        name: "likes",
-        value: `${likes}<img src="/assets/icons/heart.svg" alt="like" class="likes-img"/>`,
-      },
-    ];
-
-    createDescription(paragraphClasses, descr);
-
-    article.appendChild(image ? img : vid);
-    article.appendChild(descr);
-    return article;
+    return image ? img : vid;
   }
 
   function displayLightModal() {
     const main = document.querySelector("main");
     const modal = document.querySelector(".light-modal");
-    const imgContainer = document.querySelector(".light-modal-img");
+    const imgContainer = document.querySelector(".light-modal-media");
 
     modal.style.display = "block";
     imgContainer.innerHTML = "";
 
-    const img = document.createElement("img");
-    img.setAttribute("src", path);
+    const media = imageOrVideo();
 
-    imgContainer.appendChild(img);
+    imgContainer.appendChild(media);
   }
 
   return { getPicturesCardDOM, displayLightModal };

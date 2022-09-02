@@ -139,11 +139,11 @@ main {
     display: flex;
     align-items: center;
 } 
-.light-modal-img {
+.light-modal-media {
     width: 950px;
     height: 800px;
 }
-.light-modal-img img {
+.light-modal-media img, .light-modal video {
  width: inherit;
  height: inherit;
  object-fit: cover;
