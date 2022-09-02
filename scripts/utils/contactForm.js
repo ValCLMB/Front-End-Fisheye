@@ -13,16 +13,29 @@ function closeModal() {
 }
 
 function submitForm() {
-  const firstName = document.querySelector("#contact-firstname").value;
-  const lastName = document.querySelector("#contact-lastname").value;
-  const email = document.querySelector("#contact-email").value;
-  const message = document.querySelector("#contact-message").value;
+  const form = [
+    {
+      name: "firstname",
+      input: document.querySelector("#contact-firstname"),
+    },
+    {
+      name: "lastname",
+      input: document.querySelector("#contact-lastname"),
+    },
+    { name: "email", input: document.querySelector("#contact-email") },
+    {
+      name: "message",
+      input: document.querySelector("#contact-message"),
+    },
+  ];
 
-  const options = {
-    firstname: firstName,
-    lastname: lastName,
-    email: email,
-    msg: message,
-  };
-  console.log(options);
+  console.log({
+    firstName: form[0].input.value,
+    lastName: form[0].input.value,
+    email: form[0].input.value,
+    message: form[0].input.value,
+  });
+
+  form.forEach((item) => (item.input.value = ""));
+  closeModal();
 }
