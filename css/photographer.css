@@ -147,6 +147,7 @@ main {
  width: inherit;
  height: inherit;
  object-fit: cover;
+ border-radius: 5px;
 
 }
 .light-modal-arrows {

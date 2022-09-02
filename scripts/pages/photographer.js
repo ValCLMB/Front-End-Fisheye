@@ -38,7 +38,6 @@ async function displayPictures(pictures, photographerName) {
       );
       const pictureCardDOM = pictureModel.getPicturesCardDOM();
       photoSection.appendChild(pictureCardDOM);
-      pictureCardDOM.addEventListener("click", pictureModel.displayLightModal);
     }
   });
 
@@ -51,7 +50,6 @@ async function displayPictures(pictures, photographerName) {
     );
     const pictureCardDOM = pictureModel.getPicturesCardDOM();
     photoSection.appendChild(pictureCardDOM);
-    pictureCardDOM.addEventListener("click", pictureModel.displayLightModal);
   }
 }
 

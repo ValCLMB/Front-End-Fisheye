@@ -79,7 +79,7 @@ function photographerFactory(data) {
     const paragraphClasses = [
       {
         name: "likes",
-        value: `${likes}<img src="/assets/icons/heart.svg" alt="likes" class="likes-img"/>`,
+        value: `<span class="total-likes">${likes}</span><img src="/assets/icons/heart.svg" alt="likes" class="likes-img"/>`,
       },
       { name: "price", value: `${price}€/jour` },
     ];
