@@ -71,7 +71,6 @@ async function init() {
 }
 
 function filter(pictures, value) {
-  console.log("test");
   switch (value) {
     case "pop":
       // descending
@@ -98,7 +97,6 @@ function filter(pictures, value) {
       });
       break;
   }
-  console.log(pictures);
   return pictures;
 }
 init();
