@@ -1,4 +1,4 @@
-function picturesFactory(picture, photographerName) {
+function picturesFactory(picture, photographerName, pictures, index) {
   const { date, likes, price, image, title, video } = picture;
 
   const name = photographerName.split(" ")[0];
@@ -57,13 +57,54 @@ function picturesFactory(picture, photographerName) {
     const main = document.querySelector("main");
     const modal = document.querySelector(".light-modal");
     const imgContainer = document.querySelector(".light-modal-media");
+    const leftArrows = document.querySelectorAll(".light-modal-arrows");
 
+    //  display modal and add img
     modal.style.display = "block";
     imgContainer.innerHTML = "";
-
     const media = imageOrVideo();
-
     imgContainer.appendChild(media);
+
+    let indexImg = index;
+    // next picture
+    leftArrows[1].addEventListener("click", () => {
+      if (indexImg < pictures.length - 1) indexImg += 1;
+      else return;
+
+      console.log(indexImg);
+      imgContainer.innerHTML = "";
+      const media = document.createElement("img");
+      media.setAttribute(
+        "src",
+        `/assets/photographers/${name}/${
+          pictures[indexImg].image
+            ? pictures[indexImg].image
+            : pictures[indexImg].video
+        }`
+      );
+
+      imgContainer.appendChild(media);
+    });
+
+    // previous picture
+    leftArrows[0].addEventListener("click", () => {
+      if (indexImg > 0) indexImg -= 1;
+      else return;
+      console.log(indexImg);
+
+      imgContainer.innerHTML = "";
+      const media = document.createElement("img");
+      media.setAttribute(
+        "src",
+        `/assets/photographers/${name}/${
+          pictures[indexImg].image
+            ? pictures[indexImg].image
+            : pictures[indexImg].video
+        }`
+      );
+
+      imgContainer.appendChild(media);
+    });
   }
 
   return { getPicturesCardDOM, displayLightModal };

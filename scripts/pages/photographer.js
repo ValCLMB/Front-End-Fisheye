@@ -25,23 +25,34 @@ async function displayPictures(pictures, photographerName) {
 
   pictures = filter(pictures, "date");
 
+  // on change for filtering
   document.querySelector("#photos-filter").addEventListener("change", (e) => {
     pictures = filter(pictures, e.target.value);
     photoSection.innerHTML = "";
-    pictures.forEach((pic) => {
-      const pictureModel = picturesFactory(pic, photographerName);
+    for (let i = 0; i < pictures.length; i++) {
+      const pictureModel = picturesFactory(
+        pictures[i],
+        photographerName,
+        pictures,
+        i
+      );
       const pictureCardDOM = pictureModel.getPicturesCardDOM();
       photoSection.appendChild(pictureCardDOM);
       pictureCardDOM.addEventListener("click", pictureModel.displayLightModal);
-    });
+    }
   });
 
-  pictures.forEach((pic) => {
-    const pictureModel = picturesFactory(pic, photographerName);
+  for (let i = 0; i < pictures.length; i++) {
+    const pictureModel = picturesFactory(
+      pictures[i],
+      photographerName,
+      pictures,
+      i
+    );
     const pictureCardDOM = pictureModel.getPicturesCardDOM();
     photoSection.appendChild(pictureCardDOM);
     pictureCardDOM.addEventListener("click", pictureModel.displayLightModal);
-  });
+  }
 }
 
 async function displayAdditionalInfos(datas) {
