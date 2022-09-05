@@ -55,7 +55,7 @@ function picturesFactory(picture, photographerName, pictures, index) {
     if (image) {
       img = document.createElement("img");
       img.setAttribute("src", path);
-      img.setAttribute("alt", title + "");
+      img.setAttribute("alt", "");
       img.classList.add("photographer-photo");
     } else {
       vid = document.createElement("video");
@@ -74,6 +74,10 @@ function picturesFactory(picture, photographerName, pictures, index) {
   function displayLightModal() {
     const modal = document.querySelector(".light-modal");
     const imgContainer = document.querySelector(".light-modal-media");
+
+    // add aria hidden for accessiblility
+    document.querySelector("main").setAttribute("arida-hidden", "true");
+    modal.setAttribute("aria-hidden", "false");
 
     // event listener for close with "escape"
     window.addEventListener("keydown", (e) => {

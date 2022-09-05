@@ -1,13 +1,21 @@
-function displayModal() {
+async function displayModal() {
   const main = document.querySelector("main");
   const modal = document.getElementById("contact_modal");
-  const title = document.querySelector(".modal header h2");
-  // add main aria hidden for accessibility
-  main.setAttribute("aria-hidden", true);
+  const title = document.querySelector(".modal header h2 span");
+  const photographer = await getPhotographer();
 
-  console.log(getPhotographer());
-  // getPhotographers().title.innerHTML = `Contactez moi <span class="modal-photographer-name">${name}</span>`);
+  // add main aria hidden for accessibility
+  main.setAttribute("aria-hidden", "true");
+  modal.setAttribute("aria-hidden", "false");
+
+  // Add photographer name
+  title.innerText = photographer.name;
   modal.style.display = "block";
+
+  // event listener for closing modal at "escape" keydown
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
 }
 
 function closeModal() {
