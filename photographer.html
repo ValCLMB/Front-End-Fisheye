@@ -23,26 +23,50 @@
         <nav>
             <label for="photos-filter">Trier par</label> 
             <select id="photos-filter">
-                <option>Popularité</option>
-                <option>Date</option>
-                <option>Titre</option>
+                <option value="pop">Popularité</option>
+                <option value="date" selected>Date</option>
+                <option value="title">Titre</option>
             </select>
         </nav>
         <section class="photograph-photos-list"></section>
     </section>
+    <div class="light-modal">
+        <section class="light-modal-container">
+            <div aria-label="image closeup view" class="light-modal-content">
+                <button class="light-modal-arrows"><img src="/assets/icons/angle-left.svg" alt="Previous image" ></button>
+                <div class="light-modal-media"></div>
+                <button  class="light-modal-arrows"><img src="/assets/icons/angle-right.svg" alt="Next image" ></button>
+            </div>
+            <button onclick="closeLightModal()" class="light-modal-close"><img src="/assets/icons/close.svg" alt="close dialog"></button>
+        </section>
+       
+    </div>
 </main>
+
 <div id="contact_modal">
     <div class="modal">
         <header>
             <h2>Contactez-moi</h2>
-            <img src="assets/icons/close.svg" onclick="closeModal()" alt="close modal"/>
+            <button onclick="closeModal()" class="modal-close"><img src="assets/icons/close.svg"  alt="close modal"/></button>
         </header>
-        <form>
+        <form class="contact" >
             <div>
-                <label for="firstname">Prénom</label>
-                <input id="firstname"/>
+                <label for="contact-lastname">Nom</label>
+                <input id="contact-lastname" type="text"/>
             </div>
-            <button class="contact_button">Envoyer</button>
+            <div>
+                <label for="contact-firstname">Prénom</label>
+                <input id="contact-firstname" type="text"/>
+            </div>
+            <div>
+                <label for="contact-email">Email</label>
+                <input id="contact-email" type="email"/>
+            </div>
+            <div>
+                <label for="contact-message">Votre message</label>
+                <textarea id="contact-message"></textarea>
+            </div>
+            <input class="contact_button" value="Envoyer" type='button' onclick='submitForm()'/>
         </form>
     </div>
 </div>
@@ -51,5 +75,6 @@
 <script src="/scripts/pages/photographer.js"></script>
 <script src="/scripts/utils/contactForm.js"></script>
 <script src="/scripts/utils/description.js"></script>
+<script src="/scripts/utils/lightModal.js"></script>
 </body>
 </html>

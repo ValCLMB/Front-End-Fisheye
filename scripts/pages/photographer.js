@@ -23,11 +23,34 @@ async function displayHeader(photographer) {
 async function displayPictures(pictures, photographerName) {
   const photoSection = document.querySelector(".photograph-photos-list");
 
-  pictures.forEach((pic) => {
-    const pictureModel = picturesFactory(pic, photographerName);
+  pictures = filter(pictures, "date");
+
+  // on change for filtering
+  document.querySelector("#photos-filter").addEventListener("change", (e) => {
+    pictures = filter(pictures, e.target.value);
+    photoSection.innerHTML = "";
+    for (let i = 0; i < pictures.length; i++) {
+      const pictureModel = picturesFactory(
+        pictures[i],
+        photographerName,
+        pictures,
+        i
+      );
+      const pictureCardDOM = pictureModel.getPicturesCardDOM();
+      photoSection.appendChild(pictureCardDOM);
+    }
+  });
+
+  for (let i = 0; i < pictures.length; i++) {
+    const pictureModel = picturesFactory(
+      pictures[i],
+      photographerName,
+      pictures,
+      i
+    );
     const pictureCardDOM = pictureModel.getPicturesCardDOM();
     photoSection.appendChild(pictureCardDOM);
-  });
+  }
 }
 
 async function displayAdditionalInfos(datas) {
@@ -51,7 +74,38 @@ async function displayData(datas) {
 
 async function init() {
   const photographer = JSON.parse(window.sessionStorage.getItem("profil"));
-  const pictures = await getPhotographerPictures(photographer.id);
-  displayData({ photographer, pictures });
+  let pictures = await getPhotographerPictures(photographer.id);
+
+  displayData({ pictures, photographer });
+}
+
+function filter(pictures, value) {
+  switch (value) {
+    case "pop":
+      // descending
+      pictures.sort((a, b) => {
+        return a.likes < b.likes;
+      });
+      break;
+    case "date":
+      // increasing
+      pictures.sort((a, b) => {
+        return new Date(a.date) - new Date(b.date);
+      });
+      break;
+    default:
+      // increasing
+      pictures.sort((a, b) => {
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
+        return 0;
+      });
+      break;
+  }
+  return pictures;
 }
 init();
