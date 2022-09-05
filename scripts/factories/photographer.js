@@ -18,7 +18,7 @@ function photographerFactory(data) {
     // picture
     const img = document.createElement("img");
     img.setAttribute("src", picture);
-    img.setAttribute("alt", name);
+    img.setAttribute("alt", "");
     img.setAttribute("class", "profil_pic");
     // name
     const h2 = document.createElement("h2");
@@ -51,14 +51,16 @@ function photographerFactory(data) {
     // infos - left
     h1.textContent = name;
 
-    const paragraphClasses = [
-      { name: "location", value: `${city}, ${country}` },
-      { name: "tagline", value: `${tagline}` },
-    ];
+    const h2 = document.createElement("h2");
+    h2.textContent = `${city}, ${country}`;
+    h2.classList.add("location");
+
+    const paragraphClasses = [{ name: "tagline", value: `${tagline}` }];
 
     createDescription(paragraphClasses, subInfos);
 
     infos.appendChild(h1);
+    infos.appendChild(h2);
     infos.appendChild(subInfos);
     // picture - right
     const picture = portrait

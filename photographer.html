@@ -32,12 +32,12 @@
     </section>
     <div class="light-modal">
         <section class="light-modal-container">
-            <div class="light-modal-content">
-                <img src="/assets/icons/angle-left.svg" alt="previous image" class="light-modal-arrows">
+            <div aria-label="image closeup view" class="light-modal-content">
+                <button class="light-modal-arrows"><img src="/assets/icons/angle-left.svg" alt="Previous image" ></button>
                 <div class="light-modal-media"></div>
-                <img src="/assets/icons/angle-right.svg" alt="next image"  class="light-modal-arrows">
+                <button  class="light-modal-arrows"><img src="/assets/icons/angle-right.svg" alt="Next image" ></button>
             </div>
-            <img src="/assets/icons/close.svg" alt="close dialog" class="light-modal-close" onclick="closeLightModal()">
+            <button onclick="closeLightModal()" class="light-modal-close"><img src="/assets/icons/close.svg" alt="close dialog"></button>
         </section>
        
     </div>
@@ -46,8 +46,8 @@
 <div id="contact_modal">
     <div class="modal">
         <header>
-            <h2></h2>
-            <img src="assets/icons/close.svg" onclick="closeModal()" alt="close modal"/>
+            <h2>Contactez-moi</h2>
+            <button onclick="closeModal()" class="modal-close"><img src="assets/icons/close.svg"  alt="close modal"/></button>
         </header>
         <form class="contact" >
             <div>
