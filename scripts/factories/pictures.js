@@ -55,14 +55,12 @@ function picturesFactory(picture, photographerName, pictures, index) {
     if (image) {
       img = document.createElement("img");
       img.setAttribute("src", path);
-      img.setAttribute("alt", title);
+      img.setAttribute("alt", title + "");
       img.classList.add("photographer-photo");
     } else {
       vid = document.createElement("video");
       vid.classList.add("video");
       vid.classList.add("photographer-photo");
-      // vid.setAttribute("autoplay", true);
-      // vid.setAttribute("loop", true);
 
       const src = document.createElement("source");
       src.setAttribute("src", path);
@@ -77,6 +75,10 @@ function picturesFactory(picture, photographerName, pictures, index) {
     const modal = document.querySelector(".light-modal");
     const imgContainer = document.querySelector(".light-modal-media");
 
+    // event listener for close with "escape"
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightModal();
+    });
     //  display modal and add img
     imgContainer.innerHTML = "";
     modal.style.display = "block";
