@@ -1,5 +1,5 @@
 function photographerFactory(data) {
-  const { name, portrait, city, country, tagline, price } = data;
+  const { name, portrait, city, country, tagline, price, id } = data;
 
   const picture = portrait
     ? `assets/photographers/portrait/${portrait}`
@@ -7,14 +7,13 @@ function photographerFactory(data) {
 
   function getUserCardDOM() {
     const article = document.createElement("article");
+
     // upSection
     const upSection = document.createElement("section");
     const link = document.createElement("a");
-    link.setAttribute("href", `photographer.html`);
-    // Pass data in sessions storage when user wants to see detail
-    link.addEventListener("click", () =>
-      window.sessionStorage.setItem("profil", JSON.stringify(data))
-    );
+    // add the id of the user in the url param
+    link.setAttribute("href", `photographer.html?user=${id}`);
+
     // picture
     const img = document.createElement("img");
     img.setAttribute("src", picture);
