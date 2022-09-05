@@ -1,9 +1,12 @@
 function displayModal() {
+  const main = document.querySelector("main");
   const modal = document.getElementById("contact_modal");
   const title = document.querySelector(".modal header h2");
-  const name = JSON.parse(window.sessionStorage.getItem("profil")).name;
+  // add main aria hidden for accessibility
+  main.setAttribute("aria-hidden", true);
 
-  title.innerHTML = `Contactez moi <span class="modal-photographer-name">${name}</span>`;
+  console.log(getPhotographer());
+  // getPhotographers().title.innerHTML = `Contactez moi <span class="modal-photographer-name">${name}</span>`);
   modal.style.display = "block";
 }
 

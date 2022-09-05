@@ -1,18 +1,8 @@
-//Mettre le code JavaScript lié à la page photographer.html
+// Mettre le code JavaScript lié à la page photographer.html
 async function getDatas() {
-  let id = new URL(document.location).searchParams.get("user");
-  id = parseInt(id);
+  const photographer = await getPhotographer();
+  const pictures = await getPictures();
 
-  let pictures = [];
-  let photographer;
-  await fetch("../../data/photographers.json")
-    .then((res) => res.json())
-    .then((json) => {
-      photographer = json.photographers.find((elem) => elem.id === id);
-      json.media.forEach((picture) => {
-        if (picture.photographerId === id) pictures.push(picture);
-      });
-    });
   return { pictures, photographer };
 }
 
@@ -77,12 +67,6 @@ async function displayData(datas) {
   displayAdditionalInfos(datas);
 }
 
-async function init() {
-  const datas = await getDatas();
-
-  displayData(datas);
-}
-
 function filter(pictures, value) {
   switch (value) {
     case "pop":
@@ -111,5 +95,10 @@ function filter(pictures, value) {
       break;
   }
   return pictures;
+}
+async function init() {
+  const datas = await getDatas();
+
+  displayData(datas);
 }
 init();
