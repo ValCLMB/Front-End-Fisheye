@@ -76,7 +76,7 @@ function picturesFactory(picture, photographerName, pictures, index) {
     const imgContainer = document.querySelector(".light-modal-media");
 
     // add aria hidden for accessiblility
-    document.querySelector("main").setAttribute("arida-hidden", "true");
+    document.querySelector("main").setAttribute("aria-hidden", "true");
     modal.setAttribute("aria-hidden", "false");
 
     // event listener for close with "escape"

@@ -21,6 +21,10 @@ async function displayModal() {
 function closeModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
+
+  // add main aria hidden for accessibility
+  main.setAttribute("aria-hidden", "false");
+  modal.setAttribute("aria-hidden", "true");
 }
 
 function submitForm() {
