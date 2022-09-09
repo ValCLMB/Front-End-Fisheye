@@ -53,6 +53,10 @@ main {
     object-fit: cover;
     margin-top: 20px;
 }
+.photograph-photos-list article>button {
+    border: 0;
+    background-color: transparent;
+}
 .photograph-photos-list img,.photograph-photos-list .video {
     width: 350px;
     height: 300px;

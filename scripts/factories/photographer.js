@@ -13,6 +13,7 @@ function photographerFactory(data) {
     const link = document.createElement("a");
     // add the id of the user in the url param
     link.setAttribute("href", `photographer.html?user=${id}`);
+    link.setAttribute("aria-label", "Open the photographer detail");
 
     // picture
     const img = document.createElement("img");

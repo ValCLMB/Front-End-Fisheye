@@ -17,7 +17,7 @@
 </header>
 <main id="main">
     <header class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()" aria-label='Open contact form modal'>Contactez-moi</button>
     </header>
     <section class="photograph-photos">
         <nav>
@@ -34,11 +34,11 @@
 <div class="light-modal" role="dialog">
     <section class="light-modal-container">
         <div aria-label="image closeup view" class="light-modal-content">
-            <button class="light-modal-arrows"><img src="/assets/icons/angle-left.svg" alt="Previous image" ></button>
+            <button class="light-modal-arrows" aria-label="Previous image" role="button"><img src="/assets/icons/angle-left.svg" alt="" ></button>
             <div class="light-modal-media"></div>
-            <button  class="light-modal-arrows"><img src="/assets/icons/angle-right.svg" alt="Next image" ></button>
+            <button  class="light-modal-arrows" aria-label="Next image" role="button"><img src="/assets/icons/angle-right.svg" alt="" ></button>
         </div>
-        <button onclick="closeLightModal()" class="light-modal-close"><img src="/assets/icons/close.svg" alt="close dialog"></button>
+        <button onclick="closeLightModal()" aria-label="Close dialog" role="button" class="light-modal-close"><img src="/assets/icons/close.svg" alt=""></button>
     </section>
    
 </div>

@@ -12,8 +12,12 @@ function picturesFactory(picture, photographerName, pictures, index) {
     const article = document.createElement("article");
 
     const media = imageOrVideo();
+    const button = document.createElement("button");
+    button.append(media);
+    button.setAttribute("role", "button");
+    button.setAttribute("aria-label", "Open a close up view");
     // Light modal view
-    media.addEventListener("click", displayLightModal);
+    button.addEventListener("click", displayLightModal);
 
     // descr
     const descr = document.createElement("div");
@@ -41,7 +45,7 @@ function picturesFactory(picture, photographerName, pictures, index) {
 
     createDescription(paragraphClasses, descr);
 
-    article.appendChild(media);
+    article.appendChild(button);
     article.appendChild(descr);
 
     return article;
@@ -61,6 +65,7 @@ function picturesFactory(picture, photographerName, pictures, index) {
       vid = document.createElement("video");
       vid.classList.add("video");
       vid.classList.add("photographer-photo");
+      vid.setAttribute("role", "button");
 
       const src = document.createElement("source");
       src.setAttribute("src", path);
@@ -97,7 +102,7 @@ function picturesFactory(picture, photographerName, pictures, index) {
 
   function changePictures() {
     const imgContainer = document.querySelector(".light-modal-media");
-    const leftArrows = document.querySelectorAll(".light-modal-arrows");
+    const arrows = document.querySelectorAll(".light-modal-arrows");
 
     let indexImg = index;
 
@@ -117,8 +122,8 @@ function picturesFactory(picture, photographerName, pictures, index) {
     }
 
     //  changing index according to arrow left or right
-    leftArrows[1].addEventListener("click", () => changePicture(true));
-    leftArrows[0].addEventListener("click", () => changePicture(false));
+    arrows[1].addEventListener("click", () => changePicture(true));
+    arrows[0].addEventListener("click", () => changePicture(false));
     window.addEventListener("keydown", (e) => {
       if (e.key === "ArrowLeft") changePicture(false);
       else if (e.key === "ArrowRight") changePicture(true);
