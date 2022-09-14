@@ -46,9 +46,9 @@ function submitForm() {
 
   console.log({
     firstName: form[0].input.value,
-    lastName: form[0].input.value,
-    email: form[0].input.value,
-    message: form[0].input.value,
+    lastName: form[1].input.value,
+    email: form[2].input.value,
+    message: form[3].input.value,
   });
 
   form.forEach((item) => (item.input.value = ""));

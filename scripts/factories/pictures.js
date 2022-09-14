@@ -59,7 +59,7 @@ function picturesFactory(picture, photographerName, pictures, index) {
     if (image) {
       img = document.createElement("img");
       img.setAttribute("src", path);
-      img.setAttribute("alt", "");
+      img.setAttribute("alt", title);
       img.classList.add("photographer-photo");
     } else {
       vid = document.createElement("video");
@@ -77,6 +77,7 @@ function picturesFactory(picture, photographerName, pictures, index) {
   }
 
   function displayLightModal() {
+    console.log(picture);
     const modal = document.querySelector(".light-modal");
     const imgContainer = document.querySelector(".light-modal-media");
 
