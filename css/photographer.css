@@ -79,6 +79,11 @@ main {
     align-items: center;
     font-size: 18px;
 }
+.photograph-photos-list .likes button {
+    border: 0;
+    background-color: transparent;
+    width: max-content;
+}
 .photograph-photos-list .likes-img {
     width: 20px;
     height: 20px;

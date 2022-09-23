@@ -7,6 +7,8 @@ async function displayModal() {
   // add main aria hidden for accessibility
   main.setAttribute("aria-hidden", "true");
   modal.setAttribute("aria-hidden", "false");
+  modal.setAttribute("aria-modal", true);
+  modal.setAttribute("tabindex", -1);
 
   // Add photographer name
   title.innerText = photographer.name;
@@ -16,6 +18,7 @@ async function displayModal() {
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
   });
+  modal.focus();
 }
 
 function closeModal() {

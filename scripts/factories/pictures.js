@@ -29,7 +29,7 @@ function picturesFactory(picture, photographerName, pictures, index) {
         name: "likes",
         value: `<span id="likes-count-${
           title.split(" ")[0]
-        }">${likes}</span><img src="/assets/icons/heart.svg" alt="like" class="likes-img"/>`,
+        }">${likes}</span><button><img src="/assets/icons/heart.svg" alt="like" class="likes-img"/></button/>`,
         event: increaseLikes,
       },
     ];
@@ -77,13 +77,14 @@ function picturesFactory(picture, photographerName, pictures, index) {
   }
 
   function displayLightModal() {
-    console.log(picture);
     const modal = document.querySelector(".light-modal");
     const imgContainer = document.querySelector(".light-modal-media");
 
-    // add aria hidden for accessiblility
+    // add aria for accessiblility
     document.querySelector("main").setAttribute("aria-hidden", "true");
     modal.setAttribute("aria-hidden", "false");
+    modal.setAttribute("aria-modal", true);
+    modal.setAttribute("tabindex", -1);
 
     // event listener for close with "escape"
     window.addEventListener("keydown", (e) => {
@@ -129,6 +130,7 @@ function picturesFactory(picture, photographerName, pictures, index) {
       if (e.key === "ArrowLeft") changePicture(false);
       else if (e.key === "ArrowRight") changePicture(true);
     });
+    arrows[0].focus();
   }
 
   return { getPicturesCardDOM, displayLightModal };
