@@ -1,7 +1,7 @@
 async function getPhotographers() {
   let photographers;
 
-  await fetch("../../data/photographers.json")
+  await fetch("./../../data/photographers.json")
     .then((res) => res.json())
     .then((json) => (photographers = json.photographers));
 
@@ -27,7 +27,7 @@ async function getPictures() {
   let pictures = [];
 
   // Return all the pictures with photographerId relative to id
-  await fetch("../../data/photographers.json")
+  await fetch("./../../data/photographers.json")
     .then((res) => res.json())
     .then((json) =>
       json.media.forEach((media) => {
